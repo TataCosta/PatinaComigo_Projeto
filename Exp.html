@@ -1,0 +1,111 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+	    <title>PatinaComigo: Sua Experiência</title>
+	    <link rel="stylesheet" type="text/css" href="./resources/css/bootstrap.css">
+	    <style type="text/css">
+            @import url('http://fonts.cdnfonts.com/css/gelion');
+            body{
+				font-family: 'Gelion', sans-serif;
+				font-size: 1.35em;
+			}
+            a{
+				font-weight: bold;
+			}
+			p{
+				color: #000;
+			}
+			.just{
+				text-align:justify;
+			}
+            fieldset{
+                background-color: #9EC8D9;
+                border: #97BFCF solid 2px;
+                width: 500px;
+                margin: auto;
+                border-radius: 10px;
+            }
+            legend{
+                font-weight: bold;
+            }
+            label{
+                font-weight: bolder;
+            }
+        </style>
+    </head>
+    <body>
+		<div class="container">
+			<header class="d-flex flex-wrap justify-content-between py-3 mb-4 border-bottom">
+				<a class="navbar-brand " href="index.html" style="font-size: 1.5em ;">
+					<img src="./resources/imgs/Logo.jpg" width="fill" height="45" style="margin-right: 10px;">PatinaComigo
+				</a>
+				<ul class="nav nav-pills">
+				  <li class="nav-item"><a href="index.html" class="nav-link" aria-current="page">Início</a></li>
+				  <li class="nav-item"><a href="Tipo.html" class="nav-link">Tipos de Patins</a></li>
+				  <li class="nav-item"><a href="Exp.html" class="nav-link active">Sua Experiência</a></li>
+				  <li class="nav-item"><a href="Hist.html" class="nav-link">Sobre Nós</a></li>
+				</ul>
+			</header>
+		</div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-1"></div>
+                <div class="col-10">
+                    <h1 class="d-flex justify-content-center">Nos conte sua experência!</h1>
+                    <br>
+                    <form method="post" name="dados" onSubmit="return enviardados();">
+                        <center><fieldset>
+                            <legend>Informações Pessoais</legend>
+                            <label for="nome">Nome:</label><input name="nome" type="text" id="nome" class="formbutton">
+                            <br>
+                            <label>Email:</label><input type="text" name="email" id="email" class="formbutton">
+                            <br>
+                            <label style="margin-left: 28px;">Tel:</label><input type="text" name="telefone" id="telefone" class="formbutton">
+                        </fieldset>
+                        <br>
+                        <fieldset>
+                            <legend>Experiência com Patins</legend>
+                            <label>Mensagem:</label>
+                            <br>
+                            <textarea name="mensagem" id="mensagem" class="formbutton" rows="6" cols="45"></textarea><br>
+                            <br>
+                            <input type="submit" name="submit" class="formobjects" value="Enviar Experiência">
+                            <input type="reset" name="reset" class="formobjects" value="Limpar Formulário">
+                       </fieldset></center>
+                    </form>
+                </div>
+                <div class="col-1"></div>
+            </div>
+            <script type="text/javascript">
+			function enviardados(){
+				if(document.dados.nome.value.lenght<3){
+					alert("Preencha o campo nome corretamente!");
+					document.dados.nome.focus();
+					return false;
+				}
+				if(document.dados.email.value==""||document.dados.email.value.indexOf('@')==-1|| document.dados.email.value.indexOf('.')==-1){
+					alert("Preencha campo Email corretamente!");
+					document.dados.email.focus();
+					return false;
+				}
+                if(document.dados.telefone.value.lenght<8){
+                    alert("Preencha o campo Telefone corretamente!");
+                    document.dados.telefone.focus();
+                    return false;
+                }
+				if(document.dados.mensagem.value==""){
+					alert("Preencho o campo mensagem!");
+					document.dados.mensagem.focus();
+					return false;
+				}
+				if(document.dados.mensagem.value.lenght<20){
+					alert("É necessário preencher o campo mensagem/experiência com mais de 20 caracteres!");
+					document.dados.mensagem.focus();
+					return false;
+				}
+				return true;
+			    }
+		    </script>	
+        </div>
+    </body>
+</html>
